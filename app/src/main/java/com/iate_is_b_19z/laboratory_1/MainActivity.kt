@@ -7,16 +7,9 @@ import android.widget.Button
 import android.widget.ListView
 
 fun getWordsFromString(myString: String) : List<String>{
-    return myString.replace("\\p{Punct}".toRegex(), "").split(" +".toRegex()).toList().distinct()
+    return myString.replace("\\p{Punct}".toRegex(), "").split(" +".toRegex()).map{ it.replaceFirstChar(Char::uppercaseChar) }.toList().distinct().sorted()
 }
 
-fun getWordsWithFirstUpperCase(word: String) : String {
-    return word.replaceFirstChar(Char::uppercaseChar)
-}
-
-fun sortWords() {
-    //Понять бы ещё как это сделать...
-}
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
