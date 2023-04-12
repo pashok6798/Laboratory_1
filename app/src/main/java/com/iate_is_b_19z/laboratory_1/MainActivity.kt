@@ -7,7 +7,9 @@ import android.widget.Button
 import android.widget.ListView
 
 fun getWordsFromString(myString: String) : List<String>{
-    return myString.replace("\\p{Punct}".toRegex(), "").split(" +".toRegex()).map{ it.replaceFirstChar(Char::uppercaseChar) }.toList().distinct().sorted()
+    return myString.replace("\\p{Punct}".toRegex(), "").split(" +".toRegex()).map{
+        it.replaceFirstChar(Char::uppercaseChar)
+    }.toList().distinct().sorted()
 }
 
 
@@ -25,7 +27,8 @@ class MainActivity : AppCompatActivity() {
             val exampleString = "Одним из наставников Владимира Арсеньева в походах по горно-таёжным дебрям Дальнего Востока стал нанайский охотник Дерсу Узала. Никогда и нигде не учившийся, не умевший ни читать, ни писать, он обладал самым настоящим экологическим сознанием. Оно было впитано им сызмальства. Дерсу был не пришельцем извне, уссурийская тайга была его миром и домом. Всё сущее он называл «люди». Камни, ветер, река, огонь – всё это было для него «люди», не говоря уж о животных и растениях. Всё жило своей сокровенной жизнью, составляя удивительную таёжную симфонию. Не зная таких понятий, как экологическое равновесие или биологическая система, Дерсу, конечно же, хорошо представлял, что это такое. Когда Арсеньев, задумавшись о чём-то, бросил в костёр кусочек мяса, Дерсу выхватил его из огня и отчитал «капитана»: разве можно сжигать пищу? Уйдём отсюда мы – придут другие люди. Не енот – так барсук, не белка – так мышь или муравей…"
             val strs = getWordsFromString(exampleString)
 
-            val arrayAdapter : ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_list_item_1, strs)
+            val arrayAdapter : ArrayAdapter<String> = ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, strs)
             listView.adapter = arrayAdapter
         }
 
