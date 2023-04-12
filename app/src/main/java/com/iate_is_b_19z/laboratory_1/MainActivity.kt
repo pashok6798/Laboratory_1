@@ -14,6 +14,10 @@ fun getWordsWithFirstUpperCase(word: String) : String {
     return word.replaceFirstChar(Char::uppercaseChar)
 }
 
+fun sortWords() {
+    //Понять бы ещё как это сделать...
+}
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
